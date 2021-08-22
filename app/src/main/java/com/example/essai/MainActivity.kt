@@ -3,59 +3,48 @@ package com.example.essai
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.essai.ui.theme.EssaiTheme
+
+/*
+* File name MainActivity.kt
+*
+* Mon project d'essaie
+*
+* @package com.example.essai
+* @Author josh-Muleshi <jmuleshi2@gmail.com>
+* */
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             EssaiTheme {
-                LayoutsCodelab()
+                SimpleList()
             }
         }
     }
 }
 @Composable
-fun LayoutsCodelab() {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "LayoutsCodelab")
-                },
-                actions = {
-                    IconButton(onClick = { /* doSomething() */ }) {
-                        Icon(Icons.Filled.Favorite, contentDescription = null)
-                    }
-                }
-            )
+fun SimpleList() {
+
+    val scrollState = rememberLazyListState()
+
+    LazyColumn(state = scrollState) {
+        items(100) {
+            Text("Item #$it")
         }
-    ) { innerPadding ->
-        BodyContent(Modifier.padding(innerPadding).padding(8.dp))
     }
 }
 
+@Preview(showBackground = true)
 @Composable
-fun BodyContent(modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
-        Text(text = "Hi there!")
-        Text(text = "Thanks for going through the Layouts codelab")
-    }
-}
-
-@Preview
-@Composable
-fun LayoutsCodelabPreview() {
+fun AppPreview() {
     EssaiTheme {
-        LayoutsCodelab()
+        SimpleList()
     }
 }
