@@ -33,6 +33,7 @@ fun HomeScreen(){
 
             HeadSection()
             ChipSection(chips = listOf("Sweet sleep", "Insomnia", "Depression"))
+            CurrentMeditation()
         }
     }
 }
@@ -126,7 +127,12 @@ fun CurrentMeditation(
                 .background(ButtonBlue)
                 .padding(10.dp)
             ) {
-
+            Icon(
+                painter = painterResource(id = R.drawable.ic_play),
+                contentDescription = "play",
+                tint = Color.White,
+                modifier = Modifier.size(16.dp)
+            )
         }
     }
 }
