@@ -27,47 +27,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             EssaiTheme {
-                PhotoCard()
+
             }
         }
     }
 }
-@Composable
-fun PhotoCard(modifier: Modifier = Modifier){
-    Row(
-        modifier
-            .padding(8.dp)
-            .clip(RoundedCornerShape(4.dp))
-            .background(MaterialTheme.colors.surface)
-            .clickable(onClick = { /* Ignoring onClick */ })
-            .padding(16.dp)
 
-    ) {
-        Surface(
-            modifier
-                .size(50.dp),
-            shape = CircleShape,
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
-        ) {
-            // Image goes here
-        }
-        Column(
-            modifier
-                .padding(start = 8.dp)
-                .align(Alignment.CenterVertically)
-        ) {
-            Text(text = "Josh Muleshi", fontWeight = FontWeight.Bold)
-            CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-                Text(text = "3 minutes ago", style = MaterialTheme.typography.body2)
-            }
-        }
-    }
 
-}
-@Preview(showBackground = true)
-@Composable
-fun PhotoCardPreview(){
-    EssaiTheme {
-        PhotoCard()
-    }
-}
