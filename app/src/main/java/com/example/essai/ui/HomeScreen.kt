@@ -230,7 +230,8 @@ fun CurrentMeditation(
         Column {
             Text(
                 text = "Daily Thought",
-                style = MaterialTheme.typography.h6
+                style = MaterialTheme.typography.h6,
+                color = TextWhite
             )
             Text(
                 text = "Meditation * 3-10 min",
