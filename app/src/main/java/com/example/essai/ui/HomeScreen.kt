@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.essai.BottomMenuContent
@@ -80,7 +81,7 @@ fun HomeScreen(){
             BottomMenuContent("Sleep", R.drawable.ic_moon),
             BottomMenuContent("Music", R.drawable.ic_music),
             BottomMenuContent("Profile", R.drawable.ic_person),
-        ))
+        ), modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
 @Composable
@@ -168,10 +169,12 @@ fun HeadSection(
         ) {
             Text(
                 text = "Good morning, $name",
-                style = MaterialTheme.typography.h2
+                color = TextWhite,
+                style = MaterialTheme.typography.h6
             )
             Text(
                 text = "We wish you have a good day!",
+                color = TextWhite,
                 style = MaterialTheme.typography.body1
             )
         }
@@ -227,7 +230,7 @@ fun CurrentMeditation(
         Column {
             Text(
                 text = "Daily Thought",
-                style = MaterialTheme.typography.h2
+                style = MaterialTheme.typography.h6
             )
             Text(
                 text = "Meditation * 3-10 min",
@@ -257,7 +260,8 @@ fun FeatureSection(features: List<Feature>){
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = "Feature",
-            style = MaterialTheme.typography.h1,
+            style = MaterialTheme.typography.h6,
+            color = TextWhite,
             modifier = Modifier.padding(15.dp)
         )
         LazyVerticalGrid(
@@ -336,8 +340,9 @@ fun FeatureItem(
         ){
             Text(
                 text = feature.title,
-                style = MaterialTheme.typography.h2,
+                style = MaterialTheme.typography.h6,
                 lineHeight = 26.sp,
+                color = TextWhite,
                 modifier = Modifier.align(Alignment.TopStart)
             )
             Icon(
